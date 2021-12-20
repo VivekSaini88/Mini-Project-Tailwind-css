@@ -1,0 +1,53 @@
+doctype doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet" href="css/style.css")
+  body.bg-blue800.debug-screens
+    .container.min-h-screen.px-6.py-8.mx-auto.bg-gray-100
+      // page header / headings
+      section#header
+        .text-center
+          h1
+            | Tom Gonzales home training
+            br
+            | I'll get you in shape!
+          h2 Muscle building • Functional training • Nutritional advice
+      
+      section.grid.grid-cols-2.gap-4.mt-8#image_services
+        // picture
+        #image
+          img(src="img/tom.jpg" alt="Tom Gonzales Online Training")
+
+        // Services
+        #services
+          h3 I offer you:
+          ul
+            - const myList = ["Lessons via skype and you can record all sessions and watch them again later", "Holistic full body training", "Training without equipment", "Pain reduction", "Tailored nutrition plans"];
+            each item in myList
+              li=item
+          h3 My qualifications
+          ul
+            - const myList2 = ["Certified nutritionist", "Certified fitness trainer", "5 years of experience in 1: 1 training"];
+            each item in myList2
+              li=item
+      
+      // Prices and payment
+      section.mt-8#price_payment
+        .mx-auto(class="w-2/3")
+          h2.text-center Prices and payment
+          p My most important goal is that you get ahead with your goals.
+          p In a free opening session we will discuss what you want to achieve and how much you can and want to spend. Then we are guaranteed to find a solution that suits you.
+      
+      // Contact
+      section.mt-8#contact
+        .grid.grid-cols-2.gap-4.mx-auto(class="w-2/3")
+          .text-center#email
+            p Your message:
+            a(href="mailto:markusgonzales@gmail.com") Send an email
+          .text-center#whatsApp_telefon
+          p WhatsApp:
+          | 1 222 555 44 33
