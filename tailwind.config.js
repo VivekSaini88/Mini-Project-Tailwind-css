@@ -4,7 +4,11 @@ module.exports = {
     debugScreens: {
       position: ["top", "left"],
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        headline: ["Oswald"],
+      },
+    },
   },
   plugins: [require("tailwindcss-debug-screens")],
 };
