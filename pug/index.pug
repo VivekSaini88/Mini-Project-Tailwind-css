@@ -17,23 +17,23 @@ html(lang="en")
             | I'll get you in shape!
           h2 Muscle building • Functional training • Nutritional advice
       
-      section.grid.grid-cols-2.gap-4.mt-8#image_services
+      section.grid.grid-cols-2.gap-10.mt-8#image_services
         // picture
         #image
-          img(src="img/tom.jpg" alt="Tom Gonzales Online Training")
+          img.ml-auto(src="img/tom.jpg" alt="Tom Gonzales Online Training")
 
         // Services
         #services
           h3 I offer you:
-          ul
+          ul.list-disc.ml-6
             - const myList = ["Lessons via skype and you can record all sessions and watch them again later", "Holistic full body training", "Training without equipment", "Pain reduction", "Tailored nutrition plans"];
             each item in myList
-              li=item
-          h3 My qualifications
-          ul
+              li.mb-4.text-xl=item
+          h3.mt-10 My qualifications
+          ul.list-disc.ml-6
             - const myList2 = ["Certified nutritionist", "Certified fitness trainer", "5 years of experience in 1: 1 training"];
             each item in myList2
-              li=item
+              li.mb-4.text-xl=item
       
       // Prices and payment
       section.mt-8#price_payment
