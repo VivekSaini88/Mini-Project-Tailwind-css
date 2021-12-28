@@ -1,20 +1,28 @@
 doctype doctype html
-html(lang="en")
+html(lang="en" x-data="{ dark: false }" :class="dark ? 'dark' : '' ")
   head
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Document
     link(rel="stylesheet" href="css/styles.css")
+    script(defer src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js")
   body.bg-mainColor.debug-screens
-    .container.min-h-screen.px-6.py-8.mx-auto.bg-gray-100
+    .container.min-h-screen.px-6.py-8.mx-auto.bg-gray-100(class="dark:bg-gray-900")
       // page header / headings
-      section.text-center#header
-        .mx-auto(class="md:ml-auto")
-          h1
+      section#header
+        button.bg-gray-300.px-4.py-2.rounded.shadow-sm.transition.w-max.flex.gap-1.float-right(class="hover:bg-gray-400 hover:shadow-none dark:bg-gray-500 dark:hover:bg-gray-600 dark:hover:shadow-none dark:text-white focus:outline-none" @click="dark = !dark")
+          svg(xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-100" viewBox="0 0 20 20" fill="currentColor" x-show="dark")
+            path(fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd")
+          svg(xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-500" viewBox="0 0 20 20" fill="currentColor" x-show="!dark")
+            path(d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z")
+          span(x-text="dark ? 'Normal Mode' : 'Dark Mode' ")
+        .mx-auto.text-center.clear-right(class="md:ml-auto")
+          h1.leading-snug
             | Tom Gonzales home training
             br
-            | I'll get you in shape!
+            span.text-indigo-900.italic.text-4xl.opacity-80(class="sm:text-5xl lg:text-7xl dark:text-indigo-300")
+              q &nbsp;I'll get you in shape!&nbsp;
           h2
             span(class="md:hidden") • 
             | Muscle building 
@@ -44,7 +52,7 @@ html(lang="en")
               each item in myList2
                 li=item
 
-      div(class="xl:flex xl:w-10/12 2xl:w-9/12 xl:mx-auto")
+      div(class="xl:flex xl:w-10/12 xl:mx-auto")
         // Prices and payment
         section.mt-8#price_payment
           .mx-auto.text-justify(class="lg:w-2/3 xl:flex-auto xl:w-4/5")
@@ -56,14 +64,14 @@ html(lang="en")
         section.flex.justify-around.mt-8.mb-10o#contact(class="lg:grid lg:grid-cols-2 lg:gap-4 lg:w-2/3 lg:mx-auto xl:flex xl:flex-col xl:justify-evenly 2xl:flex 2xl:flex-row 2xl:justify-around 2xl:items-center")
           .text-center#email
             p Your message:
-            a.mt-1.mx-auto.bg-gray-300.px-4.py-2.rounded.shadow-sm.transition.flex.items-center.w-max(class="hover:bg-gray-400 hover:shadow-none focus:ring-2 focus:ring-yellow-400" href="#") 
+            a.mt-1.mx-auto.bg-gray-300.px-4.py-2.rounded.shadow-sm.transition.flex.items-center.w-max(class="hover:bg-gray-400 hover:shadow-none focus:ring-2 focus:ring-yellow-400 dark:bg-gray-500 dark:hover:bg-gray-600 dark:hover:shadow-none dark:text-white" href="#") 
               svg.h-4.mr-1(xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-at-sign")
                 circle(cx="12" cy="12" r="4")
                 path(d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94")
-              span.text-lg Send an email
+              span.text-lg(class="2xl:text-2xl") Send an email
                 
-          .mt-1.text-center#whatsApp_telefon
-            p.mb-2 WhatsApp:
-            span.text-lg 1 222 555 44 33
+          .text-center#whatsApp_telefon
+            p WhatsApp:
+            span.text-lg(class="inline-block pt-3 xl:pt-0 2xl:pt-2.5 2xl:text-2xl dark:text-gray-100") 1 222 555 44 33
 
 
